@@ -1,0 +1,21 @@
+<?php
+
+function esip_menu() {
+  $items = array(
+    'esip-map' => array(
+      'title' => 'Map Example',
+      'page callback' => 'esip_render_map',
+      'access arguments' => TRUE,
+    ),
+  );
+  
+  return $items;
+}
+
+function esip_render_map() {
+  drupal_add_js(drupal_get_path('module', 'esip') . '/js/d3.min.js');
+  drupal_add_js(drupal_get_path('module', 'esip') . '/js/topojson.js');
+  drupal_add_js(drupal_get_path('module', 'esip') . '/js/mapexample.js');
+
+  return "<div id='my-map'></div>";
+}
